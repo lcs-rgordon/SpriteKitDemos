@@ -57,6 +57,7 @@ trianglePath.addLine(to: CGPoint(x: 0, y: triangle.size.height/2))
 trianglePath.addLine(to: CGPoint(x: -triangle.size.width/2,
                                  y: -triangle.size.height/2))
 triangle.physicsBody = SKPhysicsBody(polygonFrom: trianglePath)
+triangle.physicsBody?.affectedByGravity = false
 /*:
     Try uncommenting the line below the "Make an edge loop at the boundaries of the scene" comment.
  
