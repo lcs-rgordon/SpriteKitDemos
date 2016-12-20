@@ -32,6 +32,9 @@ scene.addChild(square)
 scene.addChild(circle)
 scene.addChild(triangle)
 
+// Define physics bodies
+circle.physicsBody = SKPhysicsBody(circleOfRadius: circle.size.width / 2)
+
 // Create the view
 let view = SKView(frame: frame)
 view.showsFPS = true
