@@ -106,6 +106,17 @@ let sequence = SKAction.sequence([actionRun, actionWait])
 let actionRepeat = SKAction.repeat(sequence, count: 100)
 scene.run(actionRepeat)
 
+// Make the circle move up after 5 seconds
+let actionFiveSecondWait = SKAction.wait(forDuration: 5.0)
+let actionCircleMove = SKAction.moveBy(x: 0, y: 500, duration: 1)
+let moveUp = SKAction.sequence([actionFiveSecondWait, actionCircleMove])
+circle.run(moveUp)
+
+// Make the square move to the right after 10 seconds
+let actionSquareMove = SKAction.moveBy(x: 500, y: 0, duration: 1)
+let moveRight = SKAction.sequence([actionFiveSecondWait, actionFiveSecondWait, actionSquareMove])
+square.run(moveRight)
+
 // Create the view
 let view = SKView(frame: frame)
 view.showsFPS = true
