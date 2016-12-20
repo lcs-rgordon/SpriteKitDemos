@@ -22,6 +22,7 @@
 		811121131E09333D009FFD55 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		811121161E09333D009FFD55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		811121181E09333D009FFD55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8111211F1E0935B7009FFD55 /* Physics.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = Physics.playground; path = SpriteKitDemos/Playgrounds/Physics.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +39,7 @@
 		811120FD1E09333D009FFD55 = {
 			isa = PBXGroup;
 			children = (
+				8111211E1E093592009FFD55 /* Playgrounds */,
 				811121081E09333D009FFD55 /* SpriteKitDemos */,
 				811121071E09333D009FFD55 /* Products */,
 			);
@@ -62,6 +64,14 @@
 				811121181E09333D009FFD55 /* Info.plist */,
 			);
 			path = SpriteKitDemos;
+			sourceTree = "<group>";
+		};
+		8111211E1E093592009FFD55 /* Playgrounds */ = {
+			isa = PBXGroup;
+			children = (
+				8111211F1E0935B7009FFD55 /* Physics.playground */,
+			);
+			name = Playgrounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
