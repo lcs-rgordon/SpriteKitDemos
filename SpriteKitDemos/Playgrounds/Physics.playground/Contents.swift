@@ -41,9 +41,22 @@ scene.addChild(triangle)
  
  ![example](types-of-physics-bodies.png "Types of physics bodies")
 */
-// Define physics bodies
+// Set physics body for the circle based on its radius
 circle.physicsBody = SKPhysicsBody(circleOfRadius: circle.size.width / 2)
 
+// Set physics body for the square based on its existing dimensions (frame size)
+square.physicsBody = SKPhysicsBody(rectangleOf: square.frame.size)
+
+// There is no easy way to make a physics body for a triangle, so we make a custom path to do this
+let trianglePath = CGMutablePath()
+trianglePath.move(to: CGPoint(x: -triangle.size.width/2,
+                              y: -triangle.size.height/2))
+trianglePath.addLine(to: CGPoint(x: triangle.size.width/2,
+                                 y: -triangle.size.height/2))
+trianglePath.addLine(to: CGPoint(x: 0, y: triangle.size.height/2))
+trianglePath.addLine(to: CGPoint(x: -triangle.size.width/2,
+                                 y: -triangle.size.height/2))
+triangle.physicsBody = SKPhysicsBody(polygonFrom: trianglePath)
 /*:
     Try uncommenting the line below the "Make an edge loop at the boundaries of the scene" comment.
  
