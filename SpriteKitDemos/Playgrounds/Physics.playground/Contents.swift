@@ -65,6 +65,47 @@ triangle.physicsBody = SKPhysicsBody(polygonFrom: trianglePath)
 // Make an edge loop at the boundaries of the scene
 scene.physicsBody = SKPhysicsBody(edgeLoopFrom: scene.frame)
 
+// This function returns a random number
+public func random(min: CGFloat, max: CGFloat) -> CGFloat {
+    
+    // Get a random number between 0 and largest possible number for an unsigned 32-bit integer
+    let randomValue = arc4random()
+    
+    // Get a decimal value between 0 and 1 by dividing by large possible number for an unsigned 32-bit integer
+    let decimal = Float(randomValue) / Float(UInt32.max)
+    
+    // Scale the decimal value to the range between max and min
+    let scaled = CGFloat(decimal) * (max - min)
+    
+    // Now push the random value into the desired range by adding the minimum value
+    return scaled + min
+    
+}
+
+// This function will add a sand sprite to the scene
+func spawnSand() {
+    
+    let sand = SKSpriteNode(imageNamed: "sand")
+    
+    sand.position = CGPoint(
+        x: random(min: 0.0, max: scene.size.width),
+        y: scene.size.height - sand.size.height)
+    
+    sand.physicsBody = SKPhysicsBody(circleOfRadius:
+        sand.size.width/2)
+    
+    sand.name = "sand"
+    
+    scene.addChild(sand)
+}
+
+// Add sand particles
+let actionRun = SKAction.run(spawnSand)
+let actionWait = SKAction.wait(forDuration: 0.1)
+let sequence = SKAction.sequence([actionRun, actionWait])
+let actionRepeat = SKAction.repeat(sequence, count: 100)
+scene.run(actionRepeat)
+
 // Create the view
 let view = SKView(frame: frame)
 view.showsFPS = true
