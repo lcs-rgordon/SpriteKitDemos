@@ -31,9 +31,26 @@ triangle.position = CGPoint(x: scene.size.width * 0.75,
 scene.addChild(square)
 scene.addChild(circle)
 scene.addChild(triangle)
+/*:
+ ## Physics bodies
+"The circle body is a **dynamic** physics body — that is, it moves. It’s solid, has mass and can collide with any other type of physics body. The physics simulation can apply various forces to move volume-based bodies."
 
+ "The edge loop body is a **static** volume-less physics body — that is, it does not move. As the name implies, an edge loop only defines the edges of a shape. It doesn’t have mass, cannot collide with other edge loop bodies and is never moved by the physics simulation. Other objects can be inside or outside its edges."
+ 
+ "The most common use for an edge loop body is to define collision areas to describe your game’s boundaries, ground, walls, trigger areas or any other type of unmoving collision space."
+ 
+ ![example](types-of-physics-bodies.png "Types of physics bodies")
+*/
 // Define physics bodies
 circle.physicsBody = SKPhysicsBody(circleOfRadius: circle.size.width / 2)
+
+/*:
+    Try uncommenting the line below the "Make an edge loop at the boundaries of the scene" comment.
+ 
+    What happens to the circle now?
+ */
+// Make an edge loop at the boundaries of the scene
+scene.physicsBody = SKPhysicsBody(edgeLoopFrom: scene.frame)
 
 // Create the view
 let view = SKView(frame: frame)
